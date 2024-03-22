@@ -20,11 +20,11 @@ const handleClick = () => {
   setIsOpen(!isOpen);
 };
   return (
-    <header className="bg-white">
-      <div className="container mx-auto flex items-center justify-between py-4">
+    <header className="bg-white border-b-2 border-gray-200">
+      <div className="container mx-auto flex items-center justify-between py-3">
         <div className="flex items-center">
-          <Image src="/assets/icons/Logo.png" alt='Logo' className='top-23 left-42' width={34.06} height={47.74}/>
-          <h2 className='text-2xl font-bold ml-2' style={{ fontFamily: 'Apercu Movistar', fontSize: '35.58px', fontWeight: 700, lineHeight: '44.22px', textAlign: 'left', color: '#724FFF' }}>Uventlo</h2>
+          <Image src="/assets/icons/Logo.png" alt='Logo' className='top-23 left-42' width={30} height={30}/>
+          <h2 className='text-3xl font-bold ml-2' style={{ fontFamily: 'Apercu Movistar', fontWeight: 700, lineHeight: '44.22px', textAlign: 'left', color: '#724FFF' }}>Uventlo</h2>
         </div>
         <nav>
           <ul className="flex list-none space-x-20">
@@ -86,7 +86,6 @@ const handleClick = () => {
           </button>
         </div>
       </div>
-      <hr className="w-60 mx-auto border-t-2 border-grey" style={{width: '85%', margin: 'auto'}} />
     </header>
   );
 }

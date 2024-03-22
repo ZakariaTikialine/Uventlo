@@ -13,3 +13,26 @@
   background-size: cover;
   background-position: center;
 }
+
+.animate-wave {
+  animation: wave 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

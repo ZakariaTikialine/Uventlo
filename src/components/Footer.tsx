@@ -71,7 +71,7 @@ function Footer() {
       />
       <div className="flex justify-around p-6">
         <Image
-          src="/assets/icons/Logo2.png"
+          src="/assets/icons/Logo2.svg"
           alt="Logo"
           width={140}
           height={60}

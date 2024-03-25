@@ -13,11 +13,20 @@
   background-size: cover;
   background-position: center;
 }
+.register-image {
+  background-image: url("../../public//assets/authAssets/register.png");
+  background-size: cover;
+  background-position: center;
+}
+.second-frame-image {
+  background-image: url("../../public//assets/authAssets/register2.png");
+  background-size: fit;
+  background-position: center;
+}
 
 .animate-wave {
   animation: wave 10s ease-in-out infinite alternate;
 }
-
 
 /* @keyframes wave {
   0% {

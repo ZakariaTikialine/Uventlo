@@ -1,8 +1,17 @@
-
+"use client";
+import RegisterForm from "@/components/auth/RegisterForm";
+import { useState } from "react";
 function Regsiter() {
+  const [currentFrame, setCurrentFrame] = useState(0);
+
   return (
-    <div className=' text-3xl text-center my-16 text-blue-700'>Regsiter</div>
-  )
+    <div className=" flex justify-center items-center h-[calc(100dvh_-80px)] w-screen">
+      <RegisterForm
+        currentFrame={currentFrame}
+        setCurrentFrame={setCurrentFrame}
+      />
+    </div>
+  );
 }
 
-export default Regsiter
+export default Regsiter;

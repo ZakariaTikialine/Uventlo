@@ -1,5 +1,7 @@
+"use client";
+import UserHeader from '@/components/UserHeader';
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react';
 import { FaSearch , FaThumbtack , FaComments} from 'react-icons/fa'
 
 const page = () => {
@@ -12,7 +14,9 @@ const page = () => {
             lastMessage: "Hello!",
             lastMessageTime: "10:30 AM",
             notificationsExist: true,
-            notifications: 3
+            notifications: 3 ,
+            onlineStatus: true , 
+            lastOnline: new Date()
         },
         {
             profilePicture: "/assets/images/mini-profile.svg",
@@ -22,7 +26,9 @@ const page = () => {
             lastMessage: "Typing...",
             lastMessageTime: "11:45 AM",
             notificationsExist: true,
-            notifications: 9
+            notifications: 9 ,
+            onlineStatus: true , 
+            lastOnline: new Date()
         },
         {
             profilePicture: "/assets/images/mini-profile.svg",
@@ -31,14 +37,18 @@ const page = () => {
             lastMessage: "How are you?",
             lastMessageTime: "12:00 PM",
             notificationsExist: false,
-            notifications: 0
+            notifications: 0 ,
+            onlineStatus: false , 
+            lastOnline: '2022-01-01'
         }
     ];
 
+    const [selectedUser, setSelectedUser] = useState({});
+
     return (
-        <div className='min-h-[calc(100dvh-80px)]'>
+        <div className='min-h-[calc(100dvh-80px)] flex'>
             <section className="bg-[#FBFBFF] min-h-[calc(100dvh-80px)] w-[350px]">
-                <div className="flex justify-center gap-4 items-center h-[80px] py-4">
+                <div className="flex justify-center gap-4 items-center h-[60px] py-4">
                     <div className='flex'>
                         <button className="mr-0 bg-white px-2 text-gray-300 h-[38px] rounded-l-lg border border-gray-300">
                             {<FaSearch />}
@@ -54,7 +64,7 @@ const page = () => {
                         <span className='text-sm'>PINNED CHATS</span>
                     </div>
                     {users.filter(user => user.role).map((user, index) => (
-                        <div key={index} className='flex py-3 pl-2 relative cursor-pointer'>
+                        <div key={index} className='flex py-3 pl-2 relative cursor-pointer' onClick={() => setSelectedUser(user)}>
                             <Image src={user.profilePicture} width={49} height={49} alt="Profile Picture"  className='ml-2 mr-4 rounded-full'/>
                             <div className='flex flex-col items-start'>
                                 <span className='text-[#949494] text-sm'>
@@ -85,7 +95,7 @@ const page = () => {
                         <span className='text-sm'>ALL MESSAGES</span>
                     </div>
                     {users.map((user, index) => (
-                        <div key={index} className='flex py-3 pl-2 relative cursor-pointer'>
+                        <div key={index} className='flex py-3 pl-2 relative cursor-pointer' onClick={() => setSelectedUser(user)}>
                             <Image src={user.profilePicture} width={49} height={49} alt="Profile Picture"  className='ml-2 mr-4 rounded-full'/>
                             <div className='flex flex-col items-start'>
                                 <span className={user.typing ? 'text-[#717171] font-bold' : 'text-black font-bold'}>
@@ -105,6 +115,22 @@ const page = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            </section>
+            <section className='flex-1'>
+                <div className='h-[60px] bg-[#FFFFFF]'>
+                    <UserHeader 
+                        userName={(selectedUser as { name: string }).name}
+                        profilePictureUrl={(selectedUser as { profilePicture: string }).profilePicture}
+                        onlineStatus={(selectedUser as {onlineStatus: boolean}).onlineStatus}
+                        lastOnline={(selectedUser as {lastOnline: string | number | Date}).lastOnline}
+                    />
+                </div>
+                <div className='min-h-[calc(100dvh-200px)] bg-main-gray'>
+
+                </div>
+                <div className='bg-[#F6F8FC] h-[60px]'>
+
                 </div>
             </section>
         </div>

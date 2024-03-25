@@ -10,7 +10,7 @@ const Sidebar = () => {
     const pathname = usePathname()
 
     return (
-    <aside className='hidden h-screen w-56 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex'>
+    <aside className='hidden h-[calc(100dvh-80px)] w-[223px] bg-white p-5 shadow-md shadow-purple-200/50 lg:flex'>
         <div className="flex size-full flex-col gap-4">
             <nav className="h-full flex-col justify-between md:flex md:gap-4">
                     <ul className="hidden w-full flex-col items-start gap-2 md:flex">

@@ -6,7 +6,7 @@ import { FaExclamationCircle } from 'react-icons/fa';
 
 export default function UserNavBar() {
     return (
-        <header className="border-b-2 border-gray-200" style={{backgroundColor : '#FEFBFB'}}>
+        <header className="border-b-2 h-[80px] border-gray-200 flex items-center" style={{backgroundColor : '#FEFBFB'}}>
             <div className="container mx-auto flex items-center justify-between py-3">
                 <Link href={'/'} className="flex items-center">
                     <Image src="/assets/icons/Logo.svg" alt='Logo' className='top-23 left-42' width={30} height={30}/>

@@ -15,8 +15,10 @@ export default function AuthLayout({
   return (
     <main>
       <UserNavBar />
-      <Sidebar />
-      {children}
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1">{children}</div>
+      </div>
     </main>
   );
 }

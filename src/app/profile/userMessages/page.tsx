@@ -1,5 +1,7 @@
 "use client";
 import UserHeader from '@/components/UserHeader';
+import UserMessages from '@/components/UserMessages';
+import UserMessagesInput from '@/components/UserMessagesInput';
 import Image from 'next/image'
 import React, { useState } from 'react';
 import { FaSearch , FaThumbtack , FaComments} from 'react-icons/fa'
@@ -11,53 +13,66 @@ const page = () => {
             role: "Co-Organizer",
             name: "John Doe",
             typing: false,
-            lastMessage: "Hello!",
+            lastMessage: 'Hello!',
             lastMessageTime: "10:30 AM",
             notificationsExist: true,
             notifications: 3 ,
             onlineStatus: true , 
-            lastOnline: new Date()
+            lastOnline: new Date() ,
+            messages: [
+                { content: 'Hello!', sender: 'John Doe' ,profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+                { content: 'How are you?', sender: 'John Doe',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+                { content: `I'm good, thanks!`, sender: 'Alice Johnson',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'}
+            ]
         },
         {
             profilePicture: "/assets/images/mini-profile.svg",
             role: "Supplier",
             name: "Jane Smith",
             typing: true,
-            lastMessage: "Typing...",
+            lastMessage: 'Typing...',
             lastMessageTime: "11:45 AM",
             notificationsExist: true,
             notifications: 9 ,
             onlineStatus: true , 
-            lastOnline: new Date()
+            lastOnline: new Date(),
+            messages: [
+                { content: 'Hello!', sender: 'Jane Smith',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+                { content: 'Typing...', sender: 'Jane Smith',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+            ]
         },
         {
             profilePicture: "/assets/images/mini-profile.svg",
             name: "Alice Johnson",
             typing: false,
-            lastMessage: "How are you?",
+            lastMessage:'How are you?', 
             lastMessageTime: "12:00 PM",
             notificationsExist: false,
             notifications: 0 ,
             onlineStatus: false , 
-            lastOnline: '2022-01-01'
+            lastOnline: '2022-01-01',
+            messages: [
+                { content: 'How are you?', sender: 'Alice Johnson',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+                { content: `I'm good,`, sender: 'John Doe',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'},
+                { content: `Thanks!`, sender: 'John Doe',profilePicture :"/assets/images/mini-profile.svg" , time: '10:30 AM'}
+            ]
         }
     ];
 
     const [selectedUser, setSelectedUser] = useState({});
-
     return (
         <div className='min-h-[calc(100dvh-80px)] flex'>
             <section className="bg-[#FBFBFF] min-h-[calc(100dvh-80px)] w-[350px]">
                 <div className="flex justify-center gap-4 items-center h-[60px] py-4">
                     <div className='flex'>
-                        <button className="mr-0 bg-white px-2 text-gray-300 h-[38px] rounded-l-lg border border-gray-300">
+                        <button className="mr-0 bg-white px-2 text-gray-300 h-[38px] rounded-l-lg border-y border-l  border-gray-300">
                             {<FaSearch />}
                         </button>
-                        <input type="text" placeholder="Search" className='h-[38px] px-2 rounded-r-lg border border-gray-300' />
+                        <input type="text" placeholder="Search messages , people" className='h-[38px] px-2 rounded-r-lg border-y border-r border-gray-300' />
                     </div>
                     <button className="bg-[#724FFF] text-white rounded-[50%] w-[38px] h-[38px]">+</button>
                 </div>
-
+                <div className="border-t border-gray-300"></div>
                 <div className="pt-2">
                     <div className='flex justify-start items-center gap-3 text-[#818181] ml-8'>
                         <FaThumbtack className='text-md'/>
@@ -126,11 +141,13 @@ const page = () => {
                         lastOnline={(selectedUser as {lastOnline: string | number | Date}).lastOnline}
                     />
                 </div>
-                <div className='min-h-[calc(100dvh-200px)] bg-main-gray'>
-
+                <div className="border-t border-gray-300"></div>
+                <div className='min-h-[calc(100dvh-202px)] bg-main-gray'>
+                    <UserMessages messages={(selectedUser as {messages: []}).messages} myUser={(selectedUser as {name: string}).name} />
                 </div>
+                <div className="border-t border-gray-300"></div>
                 <div className='bg-[#F6F8FC] h-[60px]'>
-
+                    <UserMessagesInput />
                 </div>
             </section>
         </div>

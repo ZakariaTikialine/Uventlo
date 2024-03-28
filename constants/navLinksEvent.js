@@ -1,34 +1,40 @@
-import { FaUser, FaTv, FaEnvelope , FaChartPie} from "react-icons/fa";
+import { FaTv, FaEnvelope , FaChartPie , FaLayerGroup , FaRobot , FaTasks} from "react-icons/fa";
 
-    export const navLinks = [
+export const navLinks = [
     {
+        id : 1,
         label: "Dashboard",
         route: "/profile/userEvents/eventDashboard",
         icon: <FaChartPie />,
     },
     {
-        label: "Tecketation",
-        route: "/profile/userEvents/eventTecketation",
+        id : 2,
+        label: "Ticketing",
+        route: "/profile/userEvents/eventTicketing",
         icon: <FaTv />,
     },
     {
-        label: "Co Chat",
+        id : 3,
+        label: "Co-Chat",
         route: "/profile/userEvents/eventChat",
         icon: <FaEnvelope />,
     },
     {
-        label: "Tasks",
+        id : 4,
+        label: "Task management",
         route: "/profile/userEvents/eventTasks",
-        icon: <FaUser />,
+        icon: <FaTasks />,
     },
     {
-        label: "Assistants",
-        route: "/profile/userEvents/eventAssistants",
-        icon: <FaUser />,
-    },
-    {
-        label: "Floor",
+        id : 5,
+        label: "Floor management",
         route: "/profile/userEvents/eventFloor",
-        icon: <FaUser />,
+        icon: <FaLayerGroup />,
     },
-    ];
+    {
+        id : 6,
+        label: "AI Assistant",
+        route: "/profile/userEvents/eventAssistants",
+        icon: <FaRobot />,
+    },
+];

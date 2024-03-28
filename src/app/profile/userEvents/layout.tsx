@@ -13,7 +13,7 @@ export default function profileLayout({
         return (
             <main>
             <div className="flex">
-                <div className={`${isActive ? 'hidden' : 'display'}`}><SidebarEvent params={params} /></div>
+                <div className={`${isActive ? 'hidden' : 'display'}`}><SidebarEvent /></div>
                 <div className="flex-1">{children}</div>
             </div>
             </main>

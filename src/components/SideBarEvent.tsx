@@ -10,14 +10,12 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const pathName = usePathname();
   const arr = pathName.split("/");
   const eventId = arr[3];
-  console.log(arr);
   console.log(eventId);
   const navLinks = [
     {

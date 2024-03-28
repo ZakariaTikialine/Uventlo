@@ -11,7 +11,7 @@ export default function profileLayout({
     <main>
       <UserNavBar />
       <div className="flex">
-        <Sidebar />
+        <SidebarEvent />
         <div className="flex-1">{children}</div>
       </div>
     </main>

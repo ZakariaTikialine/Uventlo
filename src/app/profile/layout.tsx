@@ -16,7 +16,6 @@ export default function profileLayout({
       <UserNavBar />
       <div className="flex">
         <div className={`${isActive ? 'display' : 'hidden'}`}><Sidebar /></div>
-        <div className={`${isActive ? 'hidden' : 'display'}`}><SidebarEvent /></div>
         <div className="flex-1">{children}</div>
       </div>
     </main>

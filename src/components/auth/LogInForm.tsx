@@ -1,9 +1,28 @@
+"use client";
 import Image from "next/image";
 import shape1 from "../../../public/assets/authAssets/shape1.svg";
 import logoWithText from "../../../public/assets/authAssets/logoWithText.svg";
 import googleLogo from "../../../public/assets/authAssets/googleLogo.svg";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 function LogInForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const handleEmailChange = (e: any) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: any) => {
+    setPassword(e.target.value);
+  };
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(email);
+    console.log(password);
+    router.push("/profile/userProfile");
+  };
+
   return (
     <section className=" flex relative  bg-main-gray rounded-xl shadow-lg w-[60dvw]">
       <div className=" flex-1 login-image rounded-xl p-4 text-center text-gray-50">
@@ -28,11 +47,18 @@ function LogInForm() {
         <h1 className=" text-2xl text-center font-bold text-gray-900">
           Sign In to <span className=" text-main-purple">Uventlo </span>
         </h1>
-        <form className=" flex flex-col justify-start gap-2 text-sm">
+
+        <form
+          onSubmit={handleSubmit}
+          className=" flex flex-col justify-start gap-2 text-sm"
+        >
           <label className=" text-gray-700 " htmlFor="">
             Organizer Name
           </label>
           <input
+            onChange={(e) => handleEmailChange(e)}
+            required
+            value={email}
             className=" py-2 px-4 rounded-md outline-none"
             type="text"
             placeholder="Enter your name "
@@ -41,6 +67,9 @@ function LogInForm() {
             Password
           </label>
           <input
+            onChange={(e) => handlePasswordChange(e)}
+            required
+            value={password}
             className=" py-2 px-4 rounded-md outline-none"
             type="password"
             placeholder="Enter your password"
@@ -51,12 +80,10 @@ function LogInForm() {
               Remember me
             </label>
           </div>
-          <Link
-            href={"/"}
-            className=" flex-1 bg-main-purple py-2 rounded-md text-gray-50 text-center"
-          >
-            <button>Sign In</button>
-          </Link>
+
+          <button className=" flex-1 bg-main-purple py-2 rounded-md text-gray-50 text-center">
+            Sign In
+          </button>
           <span className=" text-gray-500 text-center ">Or</span>
 
           <button className="flex-1 flex py-2 items-center justify-center gap-2 border-[1px] rounded-md border-main-purple">

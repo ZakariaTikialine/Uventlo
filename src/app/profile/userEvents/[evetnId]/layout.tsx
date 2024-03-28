@@ -1,8 +1,7 @@
 import UserNavBar from "@/components/UserNavBar";
-import Sidebar from "@/components/SideBar";
 import SidebarEvent from "@/components/SideBarEvent";
 
-export default function profileLayout({
+export default function EventLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -11,8 +10,8 @@ export default function profileLayout({
     <main>
       <UserNavBar />
       <div className="flex">
-        <Sidebar />
-        <div className="flex-1 bg-main-gray">{children}</div>
+        <SidebarEvent />
+        <div className="flex-1">{children}</div>
       </div>
     </main>
   );

@@ -5,6 +5,8 @@ import googleLogo from "../../../public/assets/authAssets/googleLogo.svg";
 import Link from "next/link";
 import FirstRegFrame from "./FisrtRegFrame";
 import SecondRegFrame from "./SecondRegFrame";
+import ThirdRegFrame from "./ThirdRegFrame";
+import FinalRegFrame from "./FinalRegFrame";
 function RegisterForm({
   currentFrame,
   setCurrentFrame,
@@ -19,13 +21,22 @@ function RegisterForm({
         setCurrentFrame={setCurrentFrame}
       />
     );
-  } else {
+  } else if (currentFrame == 1 || currentFrame == 2) {
     return (
       <SecondRegFrame
         currentFrame={currentFrame}
         setCurrentFrame={setCurrentFrame}
       />
     );
+  } else if (currentFrame == 3) {
+    return (
+      <ThirdRegFrame
+        currentFrame={currentFrame}
+        setCurrentFrame={setCurrentFrame}
+      />
+    );
+  } else {
+    return <FinalRegFrame />;
   }
 }
 

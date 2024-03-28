@@ -1,14 +1,51 @@
 "use client"
-import { navLinks } from "../../constants/navLinksEvent"
+import { FaTv, FaEnvelope , FaChartPie , FaLayerGroup , FaRobot , FaTasks} from "react-icons/fa";
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation";
 
 
 
 const Sidebar = () => {
-    const pathname = usePathname()
-
+    const pathname = usePathname();
+    const pathName = usePathname();
+    const arr = pathName.split("/");
+    const eventId = arr[4]
+    console.log(eventId)
+    const navLinks = [
+        {
+            label: "Dashboard",
+            route: `/profile/userEvents/${eventId}/eventDashboard`,
+            icon: <FaChartPie />,
+        },
+        {
+            label: "Ticketing",
+            route: `/profile/userEvents/${eventId}/eventTicketation`,
+            icon: <FaTv />,
+        },
+        {
+            label: "Co-Chat",
+            route: "/profile/userEvents/eventChat",
+            icon: <FaEnvelope />,
+        },
+        {
+            label: "Task management",
+            route: "/profile/userEvents/eventTasks",
+            icon: <FaTasks />,
+        },
+        {
+            label: "Floor management",
+            route: "/profile/userEvents/eventFloor",
+            icon: <FaLayerGroup />,
+        },
+        {
+            id : 6,
+            label: "AI Assistant",
+            route: "/profile/userEvents/eventAssistants",
+            icon: <FaRobot />,
+        },
+    ];
     return (
     <aside className='hidden h-[calc(100dvh-80px)] w-[240px] bg-white p-3 shadow-md shadow-purple-200/50 lg:flex'>
         <div className="flex size-full flex-col gap-4 pt-3">

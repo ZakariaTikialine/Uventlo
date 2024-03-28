@@ -3,7 +3,6 @@ import { FaTv, FaEnvelope , FaChartPie , FaLayerGroup , FaRobot , FaTasks} from 
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useRouter } from "next/navigation";
 
 
 
@@ -11,7 +10,7 @@ const Sidebar = () => {
     const pathname = usePathname();
     const pathName = usePathname();
     const arr = pathName.split("/");
-    const eventId = arr[4]
+    const eventId = arr[3]
     console.log(eventId)
     const navLinks = [
         {
@@ -26,23 +25,23 @@ const Sidebar = () => {
         },
         {
             label: "Co-Chat",
-            route: "/profile/userEvents/eventChat",
+            route: `/profile/userEvents/${eventId}/eventChat`,
             icon: <FaEnvelope />,
         },
         {
             label: "Task management",
-            route: "/profile/userEvents/eventTasks",
+            route: `/profile/userEvents/${eventId}/eventTasks`,
             icon: <FaTasks />,
         },
         {
             label: "Floor management",
-            route: "/profile/userEvents/eventFloor",
+            route: `/profile/userEvents/${eventId}/eventFloor`,
             icon: <FaLayerGroup />,
         },
         {
             id : 6,
             label: "AI Assistant",
-            route: "/profile/userEvents/eventAssistants",
+            route: `/profile/userEvents/${eventId}/eventAssistants`,
             icon: <FaRobot />,
         },
     ];

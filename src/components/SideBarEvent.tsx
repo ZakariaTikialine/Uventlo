@@ -1,13 +1,12 @@
 "use client";
 import {
   FaTv,
-  FaEnvelope,
+  FaRegPaperPlane,
   FaChartPie,
   FaLayerGroup,
   FaRobot,
   FaTasks,
 } from "react-icons/fa";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -25,13 +24,13 @@ const Sidebar = () => {
     },
     {
       label: "Ticketing",
-      route: `/profile/userEvents/${eventId}/eventTicketation`,
+      route: `/profile/userEvents/${eventId}/eventTicketing`,
       icon: <FaTv />,
     },
     {
       label: "Co-Chat",
       route: `/profile/userEvents/${eventId}/eventChat`,
-      icon: <FaEnvelope />,
+      icon: <FaRegPaperPlane />,
     },
     {
       label: "Task management",

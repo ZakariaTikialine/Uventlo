@@ -4,7 +4,7 @@ import UserMessages from '@/components/UserMessages';
 import UserMessagesInput from '@/components/UserMessagesInput';
 import Image from 'next/image'
 import React, { useState } from 'react';
-import { FaSearch , FaThumbtack , FaComments} from 'react-icons/fa'
+import { FaSearch , FaThumbtack , FaComments, FaPlus} from 'react-icons/fa'
 
 const page = () => {
     const users = [
@@ -70,7 +70,7 @@ const page = () => {
                         </button>
                         <input type="text" placeholder="Search messages , people" className='h-[38px] px-2 rounded-r-lg border-y border-r border-gray-300' />
                     </div>
-                    <button className="bg-[#724FFF] text-white rounded-[50%] w-[38px] h-[38px]">+</button>
+                    <FaPlus className="bg-[#724FFF] p-2 cursor-pointer text-white rounded-[50%] w-[34px] h-[34px]"/>
                 </div>
                 <div className="border-t border-gray-300"></div>
                 <div className="pt-2">

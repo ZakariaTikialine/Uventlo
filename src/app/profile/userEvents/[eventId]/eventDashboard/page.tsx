@@ -1,5 +1,5 @@
-const page = ({ params }: { params: { evetnId: String } }) => {
-  return <div>page of event : {params.evetnId}</div>;
+const page = ({ params }: { params: { eventId: String } }) => {
+  return <div>page of event : {params.eventId}</div>;
 };
 
 export default page;

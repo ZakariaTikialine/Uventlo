@@ -4,6 +4,7 @@ import EventQuestionsInput from '@/components/eventQuestionsInput';
 import Image from 'next/image'
 import React, { useState } from 'react';
 import { FaRegTrashAlt , FaRegComment , FaRegShareSquare , FaPlus , FaRegPaperPlane , FaStar , FaCrosshairs , FaChartLine} from 'react-icons/fa'
+import circle from '/public/assets/images/circle.svg'
 
 const page = () => {
     const questions = [
@@ -102,6 +103,9 @@ const page = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* <div className='flex left-1/3 -bottom-52 absolute'>
+                            <Image src={circle} width={400} height={400} alt={''}/>
+                        </div> */}
                     </div>
                     <div className={`${isSelected ? 'hidden' : 'display'}`}>
                         <div className='min-h-[calc(100dvh-202px)] bg-main-gray'>

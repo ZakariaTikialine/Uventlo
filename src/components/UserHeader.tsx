@@ -1,6 +1,8 @@
 "use client";
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { FaEllipsisVertical , FaCircleUser , FaRegTrashCan , FaUsers , FaThumbtack , FaVolumeXmark} from 'react-icons/fa6';
 
 const UserHeader = ({ userName, profilePictureUrl, onlineStatus, lastOnline }: { userName: string, profilePictureUrl: string, onlineStatus: boolean, lastOnline: string | number | Date }) => {
 const [statusText, setStatusText] = useState(onlineStatus ? 'Online' : 'Offline');
@@ -19,31 +21,60 @@ useEffect(() => {
     }
     }, [onlineStatus]);
 
+    const [isOpen, setIsOpen] = useState(false);
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <>
         {userName && (
-            <div className='flex flex-row'>
-                <div className="h-[60px] bg-[#FFFFFF] flex items-center px-2 relative">
-                    <Image
-                        src={profilePictureUrl}
-                        alt="User Profile Picture"
-                        width={49}
-                        height={49}
-                        className="w-10 h-10 rounded-full"
-                    />
-                    <div className={`w-3 h-3 rounded-[50%] ${onlineStatus ? 'bg-[#29D697]' : 'bg-gray-500'} absolute bottom-2 left-[36px]`} />
-                </div>      
-                <div className="flex flex-col items-start p-2">
-                    <span className='text-[#515151] font-semibold'>{userName}</span>
-                    {onlineStatus ? (
-                        <span className="text-[#29D697]">Online</span>
-                    ) : (
-                        lastOnline && (
-                            <span className="text-gray-500 font-medium">
-                                Last seen {calculateTimeSince(lastOnline)}
-                            </span>
-                        )
-                    )}
+            <div className='flex flex-row justify-between items-center'>
+                <div className='flex flex-row'>
+                    <div className="h-[60px] bg-[#FFFFFF] flex items-center px-2 relative">
+                        <Image
+                            src={profilePictureUrl}
+                            alt="User Profile Picture"
+                            width={49}
+                            height={49}
+                            className="w-10 h-10 rounded-full"
+                        />
+                        <div className={`w-3 h-3 rounded-[50%] ${onlineStatus ? 'bg-[#29D697]' : 'bg-gray-500'} absolute bottom-2 left-[36px]`} />
+                    </div>      
+                    <div className="flex flex-col items-start p-2">
+                        <span className='text-[#515151] font-semibold'>{userName}</span>
+                        {onlineStatus ? (
+                            <span className="text-[#29D697]">Online</span>
+                        ) : (
+                            lastOnline && (
+                                <span className="text-gray-500 font-medium">
+                                    Last seen {calculateTimeSince(lastOnline)}
+                                </span>
+                            )
+                        )}
+                    </div>
+                </div>
+                <div className='p-5 text-[#515151] text-2xl cursor-pointer' onClick={handleClick}>
+                    <FaEllipsisVertical />
+                </div>
+                <div className={`absolute z-30 border-none rounded-lg bg-white border shadow-md px-4 py-2 transition duration-200 ease-in-out right-[2.5%] top-[16%] ${isOpen ? 'visible' : 'hidden'}`} >
+                    <ul className="list-none p-0 m-0 text-[#515151]">
+                        <li>
+                            <Link href="/profile" className='flex flex-row items-center gap-2'><FaCircleUser/><p>Visite profile</p></Link>
+                        </li>
+                        <li>
+                            <div className='flex flex-row items-center gap-2'><FaThumbtack /><p>Pin chat</p></div>
+                        </li>
+                        <li>
+                            <div className='flex flex-row items-center gap-2'><FaRegTrashCan/><p>Delete chat</p></div>
+                        </li>
+                        <li>
+                            <div className='flex flex-row items-center gap-2'><FaVolumeXmark/><p>Mute chat</p></div>
+                        </li>
+                        <li>
+                            <Link href="/collab" className='flex flex-row items-center gap-2'><FaUsers /><p>Invite to collab</p></Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         )}

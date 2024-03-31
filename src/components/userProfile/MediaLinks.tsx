@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FormEvent } from "react";
 
 interface LinksType {
   name: string;
@@ -10,16 +11,46 @@ interface LinksType {
 }
 
 function MediaLinks() {
-  const [links, setLinks] = useState<LinksType[]>([]);
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
   return (
-    <section>
-      <h1>Social media :</h1>
-      {links?.map((link, index) => (
-        <Link key={index} href={link.url}>
-          {link.icon}
-        </Link>
-      ))}
-      <Link href="/profile/userProfile/?show=true">Add link</Link>
+    <section className=" p-6 rounded-2xl bg-white ">
+      <form
+        onSubmit={(e) => handleFormSubmit(e)}
+        className=" flex-1 flex flex-col gap-3 text-sm "
+      >
+        <h1 className=" mb-4 capitalize text-xl font-bold ">social links :</h1>
+        <input
+          type="text"
+          placeholder="Facebook link : "
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+        />
+        <input
+          type="text"
+          placeholder="LinkedIn link : "
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+        />
+        <input
+          type="text"
+          placeholder="Instagram link : "
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+        />
+        <input
+          type="text"
+          placeholder="Youtube link : "
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+        />
+        <input
+          type="text"
+          placeholder="Twiter  link : "
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+        />
+        <button className=" rounded-md py-2 bg-main-purple text-gray-50  mt-4">
+          Change User Infos
+        </button>
+      </form>
     </section>
   );
 }

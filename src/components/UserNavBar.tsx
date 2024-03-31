@@ -28,7 +28,7 @@ export default function UserNavBar() {
                 <Link href={'/'}>
                     <div className="flex items-center">
                         <Image src="/assets/icons/Logo.svg" alt='Logo' className='top-23 left-42' width={30} height={30} />
-                        <h2 className='text-3xl font-bold ml-2'>Uventlo</h2>
+                        <h2 className='text-3xl font-bold ml-2 text-[#724FFF]'>Uventlo</h2>
                     </div>
                 </Link>
                 <nav className='flex flex-row relative'>

@@ -1,11 +1,12 @@
 "use client";
 import {
-  FaTv,
+  FaTicketAlt,
   FaRegPaperPlane,
   FaChartPie,
   FaLayerGroup,
   FaRobot,
   FaTasks,
+  FaTv,
 } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,7 +26,7 @@ const Sidebar = () => {
     {
       label: "Ticketing",
       route: `/profile/userEvents/${eventId}/eventTicketing`,
-      icon: <FaTv />,
+      icon: <FaTicketAlt />,
     },
     {
       label: "Co-Chat",
@@ -43,14 +44,18 @@ const Sidebar = () => {
       icon: <FaLayerGroup />,
     },
     {
-      id: 6,
       label: "AI Assistant",
       route: `/profile/userEvents/${eventId}/eventAssistants`,
       icon: <FaRobot />,
     },
+    {
+      label: "Stream",
+      route: `/profile/userEvents/${eventId}/eventStream`,
+      icon: <FaTv />,
+    },
   ];
   return (
-    <aside className="hidden h-[calc(100dvh-80px)] w-[240px] bg-white p-3 shadow-md shadow-purple-200/50 lg:flex">
+    <aside className="hidden h-[calc(100dvh-80px)] w-[260px] bg-white p-3 shadow-md shadow-purple-200/50 lg:flex">
       <div className="flex size-full flex-col gap-4 pt-3">
         <nav className="h-full flex-col justify-between md:flex md:gap-4">
           <ul className="hidden w-full flex-col items-start gap-2 md:flex">

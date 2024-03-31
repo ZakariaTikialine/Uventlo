@@ -7,6 +7,7 @@ import {
   FaRobot,
   FaTasks,
   FaTv,
+  FaWrench
 } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -52,6 +53,11 @@ const Sidebar = () => {
       label: "Stream",
       route: `/profile/userEvents/${eventId}/eventStream`,
       icon: <FaTv />,
+    },
+    {
+      label: "Settings",
+      route: `/profile/userEvents/${eventId}/eventSettings`,
+      icon: <FaWrench />,
     },
   ];
   return (

@@ -17,7 +17,7 @@ interface UserMessagesProps {
 
 const UserMessages: React.FC<UserMessagesProps> = ({ messages, myUser }) => {
     return (
-            <div className="overflow-y:hidden flex flex-col p-3">
+            <div className="flex flex-col p-3 overflow-y:hidden ">
                 {messages && messages.map((message) => (
                     <div className={`flex flex-row ${message.sender === myUser ? 'justify-end' : 'justify-start'}`}>
                         <Image width={22} height={22} src={message.profilePicture} alt="Profile Picture" className={`${message.sender === myUser ? 'hidden' : 'w-8 h-8 rounded-full mr-2'}`}/>

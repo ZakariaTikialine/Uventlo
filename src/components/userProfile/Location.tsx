@@ -1,6 +1,7 @@
 "use client";
 import { FormEvent } from "react";
-
+import mapImg from "../../../public/assets/images/map.png";
+import Image from "next/image";
 function Location() {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -15,6 +16,13 @@ function Location() {
         <h1 className=" mb-4 capitalize text-xl font-bold ">
           organization location :
         </h1>
+        <Image
+          src={mapImg}
+          width={120}
+          height={120}
+          alt="map"
+          className=" w-full rounded-lg bg-cover bg-center"
+        />
         <textarea
           className=" bg-main-gray p-4 rounded-md h-[100px] resize-none outline-none focus:outline-main-purple transition-all duration-700"
           name=""

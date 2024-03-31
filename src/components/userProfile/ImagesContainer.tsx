@@ -1,10 +1,12 @@
 import Image from "next/image";
-function ImagesContainer() {
+import profileImg from "../../../public/assets/images/profileImage.jpg";
+
+function ImagesContainer({ canEdit }: { canEdit: Boolean }) {
   const userInfo = {
     name: "Didou Boutobba",
     type: "Tech & Shit",
     location: "Khenchela, Algeria",
-    profileImg: null,
+    profileImg: profileImg,
     coverImg: null,
   };
   return (
@@ -16,7 +18,7 @@ function ImagesContainer() {
             alt="profile image"
             height={200}
             width={200}
-            className=" w-full"
+            className=" w-full rounded-lg"
           />
         ) : null}
       </div>
@@ -28,7 +30,7 @@ function ImagesContainer() {
               alt="profile image"
               height={140}
               width={140}
-              className=" w-full"
+              className=" w-full rounded-full"
             />
           ) : null}
         </div>

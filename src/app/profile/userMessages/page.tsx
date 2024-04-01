@@ -60,6 +60,15 @@ const page = () => {
     ];
 
     const [selectedUser, setSelectedUser] = useState({});
+    const [inputContent, setInputContent] = useState('');
+
+    const handleSendMessage = (message: string) => {
+        setSelectedUser({
+        ...selectedUser,
+        messages: [...selectedUser.messages, { content: message, sender: 'user', profilePicture: "/assets/images/mini-profile.svg", time: new Date().toLocaleTimeString() }],
+    });
+      setInputContent(''); // Clear the input field
+    };
     return (
         <div className='min-h-[calc(100dvh-80px)] flex'>
             <section className="bg-[#FBFBFF] min-h-[calc(100dvh-80px)] w-[350px]">
@@ -146,8 +155,13 @@ const page = () => {
                     <UserMessages messages={(selectedUser as {messages: []}).messages} myUser={(selectedUser as {name: string}).name} />
                 </div>
                 <div className="border-t border-gray-300"></div>
+                
+
                 <div className='bg-[#F6F8FC] h-[60px]'>
-                    <UserMessagesInput />
+                <UserMessagesInput
+                    content={inputContent}
+                    onContentChange={setInputContent}
+                    onSendMessage={handleSendMessage} />
                 </div>
             </section>
         </div>

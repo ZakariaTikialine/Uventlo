@@ -75,18 +75,18 @@ const page = () => {
 
     const [filteredUsers, setFilteredUsers] = useState(users);
 
-    const handleUserSearch = (searchTerm) => {
-        const filtered = users.filter((user) =>
-            user.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredUsers(filtered);
-        setOnSearch(true);
-        };
+    // const handleUserSearch = (searchTerm) => {
+    //     const filtered = users.filter((user) =>
+    //         user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    //     );
+    //     setFilteredUsers(filtered);
+    //     setOnSearch(true);
+    //     };
 
     return (
         <div className='min-h-[calc(100dvh-80px)] flex'>
             <section className="bg-[#FBFBFF] min-h-[calc(100dvh-80px)] w-[350px]">
-                <UserSearch users={users} onSearch={handleUserSearch}/>
+                <UserSearch users={users} onSearch={() => {}}/>
                 <div className="border-t border-gray-300"></div>
                 <div className="pt-2">
                     {onSearch && filteredUsers.length > 0 && filteredUsers !== users && filteredUsers.filter(user => user.role).map((user, index) => (
@@ -202,3 +202,7 @@ const page = () => {
 }
 
 export default page
+
+function setFilteredUsers(filtered: ({ profilePicture: string; role: string; name: string; typing: boolean; lastMessage: string; lastMessageTime: string; notificationsExist: boolean; notifications: number; onlineStatus: boolean; lastOnline: Date; messages: { content: string; sender: string; profilePicture: string; time: string; }[]; } | { profilePicture: string; name: string; typing: boolean; lastMessage: string; lastMessageTime: string; notificationsExist: boolean; notifications: number; onlineStatus: boolean; lastOnline: string; messages: { content: string; sender: string; profilePicture: string; time: string; }[]; role?: undefined; })[]) {
+    throw new Error('Function not implemented.');
+}

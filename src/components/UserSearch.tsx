@@ -29,7 +29,7 @@ interface UserSearchProps {
             <input
                 type="text"
                 placeholder="Search Users"
-                className='h-[38px] px-2 rounded-r-lg border-y border-r border-gray-300'
+                className='h-[38px] px-2 rounded-r-md border-y border-r border-gray-300 outline-none transition-all duration-200'
                 value={searchKey}
                 onChange={handleSearchChange}
             />

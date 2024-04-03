@@ -5,6 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaAngleDown , FaArrowCircleRight} from 'react-icons/fa';
 import { useState } from 'react';
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { useTheme } from "next-themes"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const links = [
   { link: '/about-us', label: 'About Us' },
@@ -14,6 +23,7 @@ const links = [
 
 
 export default function NavBar() {
+  const { setTheme } = useTheme()
 
   const [isOpenSolutions, setIsOpenSolutions] = useState(false);
   const [isOpenServices, setIsOpenServices] = useState(false);
@@ -100,6 +110,26 @@ export default function NavBar() {
           <button className="text-white font-bold py-2 px-4 rounded" style={{ width: '134px', height: '47px', borderRadius: '6px', background: '#724FFF' }}>
             <span className='w-96 h-21 font-sans text-base font-medium leading-6 text-center'>Create Event</span>
           </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

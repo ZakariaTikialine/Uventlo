@@ -49,6 +49,16 @@ const page = () => {
         setSelectedQuestion(question);
     }
 
+    const [inputDiscussion, setInputDiscussion] = useState('');
+
+    const handleSendMessage = (message: string) => {
+        setSelectedQuestion({
+        ...selectedQuestion,
+        discussion: [...(selectedQuestion as {discussion: []}).discussion, { content: message, sender: 'user' }],
+    });
+        setInputDiscussion('');
+    };
+
     return (
         <div className='min-h-[calc(100dvh-80px)] flex'>
             <section className="bg-[#E9E9FF] min-h-[calc(100dvh-80px)] w-[350px] flex flex-col justify-between">
@@ -76,7 +86,7 @@ const page = () => {
                             <input
                                 type="text"
                                 placeholder="Example : Explain events management in simple terms..."
-                                className=' w-full p-4 m-4 bg-[#E9E9FF] border border-[#AA95FF] rounded-md'
+                                className=' w-full p-4 m-4 bg-[#E9E9FF] border border-[#AA95FF] rounded-md outline-none focus:outline-main-purple transition-all duration-200'
                             />
                             <FaRegPaperPlane className="bg-[#724FFF] text-white rounded-md p-2 flex items-center absolute right-[30px] w-10 h-10 cursor-pointer"/>
                         </div>
@@ -113,7 +123,7 @@ const page = () => {
                         </div>
                         <div className="border-t border-gray-300"></div>
                         <div className='bg-[#F6F8FC] h-[60px]'>
-                            <EventQuestionsInput />
+                            <EventQuestionsInput discussion={inputDiscussion} onDiscussionChange={setInputDiscussion} onSendMessage={handleSendMessage}/>
                         </div>
                     </div>
             </section>

@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaRegPaperPlane } from 'react-icons/fa';
 
-const EventQuestionsInput: React.FC = () => {
-    const [discussion, setDiscussion] = useState('');
+interface EventQuestionsInputProps {
+    discussion: string;
+    onDiscussionChange: (content: string) => void;
+    onSendMessage: (message: string) => void; 
+}
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDiscussion(event.target.value);
-    };
+const EventQuestionsInput: React.FC<EventQuestionsInputProps> = ({
+    discussion,
+    onDiscussionChange,
+    onSendMessage,
+}) => {
 
     const handleSendClick = () => {
-        // Add the message to the database and display it in user messages
+        if (discussion.trim() !== '') {
+            onSendMessage(discussion);
+            onDiscussionChange('');
+        }
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleSendClick();
+        }
     };
 
     return (
@@ -17,9 +31,10 @@ const EventQuestionsInput: React.FC = () => {
             <input
                 type="text"
                 value={discussion}
-                onChange={handleInputChange}
+                onChange={event => onDiscussionChange(event.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Type your message..."
-                className='w-full p-4 m-4 bg-[#E9E9FF] border border-[#AA95FF] rounded-md'
+                className='w-full p-4 m-4 bg-[#E9E9FF] border border-[#AA95FF] rounded-md outline-none focus:outline-main-purple transition-all duration-200'
             />
             <FaRegPaperPlane className="bg-[#724FFF] text-white rounded-md p-2 flex items-center absolute right-[30px] w-10 h-10 cursor-pointer" onClick={handleSendClick}/>
         </div>

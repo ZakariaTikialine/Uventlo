@@ -1,8 +1,9 @@
 "use client";
 import UserNavBar from "@/components/UserNavBar";
 import Sidebar from "@/components/SideBar";
-import SidebarEvent from "@/components/SideBarEvent";
 import { usePathname } from "next/navigation";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 
 export default function profileLayout({
   children,
@@ -24,7 +25,11 @@ export default function profileLayout({
         <div className={`${isActive ? "display" : "hidden"}`}>
           <Sidebar />
         </div>
-        <div className="flex-1">{children}</div>
+        <div className="flex-1">
+          <ScrollArea className="h-[calc(100dvh-80px)]">
+            {children}
+          </ScrollArea>
+        </div>
       </div>
     </main>
   );

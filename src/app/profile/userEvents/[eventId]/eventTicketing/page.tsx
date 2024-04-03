@@ -2,6 +2,68 @@ import Image from "next/image";
 import vector from "/public/assets/images/vector.svg";
 import { FaTicketAlt, FaUser, FaPhoneAlt, FaCopy } from "react-icons/fa";
 import codeBar from "/public/assets/images/codeBar.svg";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+const guests = [
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "1",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "2",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "3",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "4",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "5",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "6",
+  },
+  {
+    guest: "Cristiano Ronaldo",
+    ticketType: "VIP",
+    date: "17-05-2004",
+    email: "cristiano7@blida.dz",
+    id : "7",
+  },
+]
+
 
 const page = () => {
   return (
@@ -11,7 +73,7 @@ const page = () => {
           <h1 className="font-semi text-gray-400 px-2">Ticket type : |</h1>
           <select
             title="select"
-            className="h-[40px] rounded-[5px] mr-2 font-semibold border-none cursor-pointer"
+            className="h-[40px] rounded-[5px] mr-2 font-semibold border-none cursor-pointer rounded-md outline-none"
           >
             <option value="1" className="p-2">
               Spectator
@@ -35,7 +97,7 @@ const page = () => {
                 type="text"
                 title="headline"
                 placeholder="Ticket Headline"
-                className="border border-[#724FFF] w-full h-[50px] my-[10px] rounded-md p-2"
+                className="border border-[#724FFF] w-full h-[50px] my-[10px] rounded-md p-2 outline-none focus:outline-main-purple transition-all duration-200"
               />
               <label htmlFor="">
                 <h1 className="font-semibold">Event adress</h1>
@@ -44,7 +106,7 @@ const page = () => {
                 type="text"
                 title="headline"
                 placeholder="Event adress"
-                className="border border-[#724FFF] w-full h-[50px] my-[10px] rounded-md p-2"
+                className="border border-[#724FFF] w-full h-[50px] my-[10px] rounded-md p-2 outline-none focus:outline-main-purple transition-all duration-200"
               />
               <label htmlFor="">
                 <h1 className="font-semibold">Ticket reservation link</h1>
@@ -53,7 +115,7 @@ const page = () => {
                 type="text"
                 title="headline"
                 placeholder="https://www.eventname.uventlo.com/index.php"
-                className="border border-[#724FFF] w-full h-[50px] mt-[10px] rounded-md p-2"
+                className="border border-[#724FFF] w-full h-[50px] mt-[10px] rounded-md p-2 outline-none focus:outline-main-purple transition-all duration-200"
               />
             </form>
             <FaCopy className="absolute cursor-pointer bottom-[66px] right-[33px]" />
@@ -89,48 +151,30 @@ const page = () => {
           </p>
         </div>
       </section>
-      <section className="bg-white  rounded-xl">
-        <div className="flex flex-row justify-around">
-          <div className="flex flex-col p-2">
-            <p className="flex flex-row items-center gap-3 text-center">
-              <FaUser />
-              Guest
-            </p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">cheb khaled</p>
-          </div>
-          <div className="flex flex-col p-2">
-            <p className="flex flex-row items-center gap-3 text-center">
-              <FaTicketAlt />
-              Ticket type
-            </p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">VIP</p>
-          </div>
-          <div className="flex flex-col p-2">
-            <p className="text-center">Date</p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">17-05-2024</p>
-          </div>
-          <div className="flex flex-col p-2">
-            <p className="text-center">Email</p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">khaled@vip.dz</p>
-          </div>
-          <div className="flex flex-col p-2">
-            <p className="flex flex-row items-center gap-3 text-center">
-              <FaPhoneAlt />
-              Phone
-            </p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">911</p>
-          </div>
-          <div className="flex flex-col p-2">
-            <p className="text-center">ID</p>
-            <div className="border border-gray-400 my-[5px] w-[100%]" />
-            <p className="text-center">11110000</p>
-          </div>
-        </div>
+      <section className="bg-white rounded-xl">
+        <Table>
+          <TableCaption>A list of your recent guests.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Guest</TableHead>
+              <TableHead>Ticket type</TableHead>
+              <TableHead>Date</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>ID</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {guests.map((guest) => (
+              <TableRow key={guest.guest}>
+                <TableCell className="font-medium">{guest.guest}</TableCell>
+                <TableCell>{guest.ticketType}</TableCell>
+                <TableCell>{guest.date}</TableCell>
+                <TableCell>{guest.email}</TableCell>
+                <TableCell >{guest.id}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </section>
     </div>
   );

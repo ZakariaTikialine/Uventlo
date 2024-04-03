@@ -25,27 +25,27 @@ function MediaLinks() {
         <input
           type="text"
           placeholder="Facebook link : "
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
         />
         <input
           type="text"
           placeholder="LinkedIn link : "
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
         />
         <input
           type="text"
           placeholder="Instagram link : "
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
         />
         <input
           type="text"
           placeholder="Youtube link : "
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
         />
         <input
           type="text"
           placeholder="Twiter  link : "
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-300"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
         />
         <button className=" rounded-md py-2 bg-main-purple text-gray-50  mt-4">
           Change User Infos

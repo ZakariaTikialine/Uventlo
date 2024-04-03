@@ -24,7 +24,7 @@ function Location() {
           className=" w-full rounded-lg bg-cover bg-center"
         />
         <textarea
-          className=" bg-main-gray p-4 rounded-md h-[100px] resize-none outline-none focus:outline-main-purple transition-all duration-700"
+          className=" bg-main-gray p-4 rounded-md h-[100px] resize-none outline-none focus:outline-main-purple transition-all duration-200"
           name=""
           id=""
           placeholder="Discription"

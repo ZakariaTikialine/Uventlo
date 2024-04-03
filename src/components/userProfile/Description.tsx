@@ -18,20 +18,20 @@ function Description() {
         </h1>
         <label htmlFor="">Organizer name / Company </label>
         <input
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-700"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
           type="text"
           placeholder=" Enter your Organizer/Company name"
         />
         <label htmlFor="">Agency type</label>
         <input
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-700"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
           type="text"
           placeholder=" Enter your Agency type"
         />
         <label htmlFor="">Description</label>
 
         <textarea
-          className=" bg-main-gray p-4 rounded-md h-[200px] resize-none outline-none focus:outline-main-purple transition-all duration-700"
+          className=" bg-main-gray p-4 rounded-md h-[200px] resize-none outline-none focus:outline-main-purple transition-all duration-200"
           name=""
           id=""
           placeholder="Discription"
@@ -40,7 +40,7 @@ function Description() {
         ></textarea>
         <label htmlFor="">Organnzation Contact</label>
         <input
-          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-700"
+          className=" bg-main-gray py-2 px-4 rounded-md outline-none focus:outline-main-purple transition-all duration-200"
           type="text"
           placeholder=" Enter your Agency type"
         />

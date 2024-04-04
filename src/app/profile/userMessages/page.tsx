@@ -8,6 +8,19 @@ import Image from 'next/image'
 import React, { useState } from 'react';
 import {  FaThumbtack , FaComments} from 'react-icons/fa'
 
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+
 const page = () => {
     const users = [
         {

@@ -3,6 +3,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { FaEllipsisVertical , FaCircleUser , FaRegTrashCan , FaUsers , FaThumbtack , FaVolumeXmark} from 'react-icons/fa6';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+
+
 
 const UserHeader = ({ userName, profilePictureUrl, onlineStatus, lastOnline }: { userName: string, profilePictureUrl: string, onlineStatus: boolean, lastOnline: string | number | Date }) => {
 const [statusText, setStatusText] = useState(onlineStatus ? 'Online' : 'Offline');
@@ -57,22 +78,79 @@ useEffect(() => {
                 <div className='p-5 text-[#515151] text-2xl cursor-pointer' onClick={handleClick}>
                     <FaEllipsisVertical />
                 </div>
-                <div className={`absolute z-30 border-none rounded-lg bg-white border shadow-md px-4 py-2 transition duration-200 ease-in-out right-[2.5%] top-[16%] ${isOpen ? 'visible' : 'hidden'}`} >
+                <div className={`absolute z-30 border-none rounded-lg bg-white border shadow-md px-4 py-2 transition duration-200 ease-in-out right-[2.5%] top-[5%] ${isOpen ? 'visible' : 'hidden'}`} >
                     <ul className="list-none p-0 m-0 text-[#515151]">
                         <li>
-                            <Link href="/profile" className='flex flex-row items-center gap-2'><FaCircleUser/><p>Visite profile</p></Link>
+                            <div className='flex flex-row items-center gap-2'><FaCircleUser/><p>Visite profile</p></div>
                         </li>
                         <li>
-                            <div className='flex flex-row items-center gap-2'><FaThumbtack /><p>Pin chat</p></div>
+                            <AlertDialog>
+                                <AlertDialogTrigger className='flex flex-row items-center gap-2'><FaThumbtack /><p>Pin chat</p></AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                    <AlertDialogTitle className='text-gray-500'>So you want to pin <span className='text-black'>@username</span> as :</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        <Select>
+                                            <SelectTrigger className="">
+                                                <SelectValue placeholder="Supplier" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="Co-Organizer">Co-Organizer</SelectItem>
+                                                <SelectItem value="Supplier">Supplier</SelectItem>
+                                                <SelectItem value="Sponsor">Sponsor</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel>Decline</AlertDialogCancel>
+                                        <AlertDialogAction>Yes</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
                         </li>
                         <li>
-                            <div className='flex flex-row items-center gap-2'><FaRegTrashCan/><p>Delete chat</p></div>
+                            <AlertDialog>
+                                <AlertDialogTrigger className='flex flex-row items-center gap-2'><FaRegTrashCan/><p>Delete chat</p></AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                        <AlertDialogTitle>Are you absolutely sure that you want to delete this chat?</AlertDialogTitle>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel>Decline</AlertDialogCancel>
+                                        <AlertDialogAction>Yes</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
                         </li>
                         <li>
                             <div className='flex flex-row items-center gap-2'><FaVolumeXmark/><p>Mute chat</p></div>
                         </li>
                         <li>
-                            <Link href="/collab" className='flex flex-row items-center gap-2'><FaUsers /><p>Invite to collab</p></Link>
+                            <AlertDialog>
+                                <AlertDialogTrigger className='flex flex-row items-center gap-2'><FaUsers /><p>Invite to collab</p></AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                    <AlertDialogTitle>Invite to collab to the :</AlertDialogTitle>
+                                        <AlertDialogDescription>
+                                            <Select>
+                                                <SelectTrigger className="">
+                                                    <SelectValue placeholder="Theme" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="Event-name">Event-name</SelectItem>
+                                                    <SelectItem value="Event-name">Event-name</SelectItem>
+                                                    <SelectItem value="Event-name">Event-name</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel>Decline</AlertDialogCancel>
+                                        <AlertDialogAction>Invite</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
                         </li>
                     </ul>
                 </div>

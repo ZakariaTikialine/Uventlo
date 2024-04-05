@@ -15,6 +15,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+
+
 const links = [
   { link: '/about-us', label: 'About Us' },
   { link: '/pricing', label: 'Pricing' },
@@ -44,58 +56,46 @@ export default function NavBar() {
           <h2 className='text-3xl font-bold ml-2' style={{ fontFamily: 'Helvetica', fontWeight: 700, lineHeight: '44.22px', textAlign: 'left', color: '#724FFF' }}>Uventlo</h2>
         </Link>
         <nav>
-          <ul className="flex list-none space-x-20">
+          <ul className="flex items-center list-none space-x-20">
             <li className="inline-block">
-              <button type="button" className="bg-transparent border-none px-4 py-2 cursor-pointer text-black flex items-center gap-2 font-bold" onClick={handleClickSolutions}>
-                <p>Solutions</p> <FaAngleDown />
-              </button>
-              <div className={`absolute z-30 border-none rounded-lg bg-white border shadow-md px-4 py-2 transition duration-200 ease-in-out ${isOpenSolutions ? 'visible' : 'hidden'}`} style={{left: '27%'}}>
-                <ul className="list-none p-0 m-0">
-                  <li>
-                    <Link href="/in-person-event" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>In - Person Event</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/virtual-events" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Virtual Events</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/hybrid" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Hybrid</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/webinars" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Webinars<span className='bg-main-purple text-white ml-2 px-2 rounded-lg text-sm'>soon</span></p></Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="bg-transparent border-none px-4 py-2 cursor-pointer text-black flex items-center gap-2 font-semibold text-lg">Solutions</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>In - Person Event</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Virtual Events</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Hybrid</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Webinars<span className='bg-main-purple text-white ml-2 px-2 rounded-lg text-sm'>soon</span></p></NavigationMenuLink>
+                    </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </li> 
             <li className="inline-block">
-              <button type="button" className="bg-transparent border-none px-4 py-2 cursor-pointer text-black flex items-center gap-2 font-bold" onClick={handleClickServices}>
-                Services <FaAngleDown />
-              </button>
-              <div className={`absolute z-30 border-none rounded-lg bg-white border shadow-md px-4 py-2 transition duration-200 ease-in-out ${isOpenServices ? 'visible' : 'hidden'}`} style={{left: '39.5%'}}>
-                <ul className="list-none p-0 m-0">
-                  <li>
-                    <Link href="/ticketation" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Ticketation</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/web-site-builder" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Web-site builder</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/event-check-in" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Event check-in</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/agenda-builder" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Agenda builder</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/analytics-and-reporting" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Analytics & Reporting</p></Link>
-                  </li>
-                  <li>
-                    <Link href="/ai-integration" className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>AI integration</p></Link>
-                  </li>
-                </ul>
-              </div>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="bg-transparent border-none px-4 py-2 cursor-pointer text-black flex items-center gap-2 font-semibold text-lg">Services</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                      <NavigationMenuLink className='flex flex-row items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Ticketation</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex flex-row items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Web-site builder</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Event check-in</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Agenda builder</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>Analytics & Reporting</p></NavigationMenuLink>
+                      <NavigationMenuLink className='flex items-center gap-2'><FaArrowCircleRight className='text-sm text-main-purple'/><p>AI integration</p></NavigationMenuLink>
+                    </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </li>
             {links.map((link) => (
-              <li className='inline-block px-4 py-2  font-bold' key={link.link}>
-                <Link href={link.link} className="cursor-pointer text-black">
+              <li className='inline-block px-4 py-2 font-semibold' key={link.link}>
+                <Link href={link.link} className="cursor-pointer text-black text-lg">
                   {link.label}
                 </Link>
               </li>
@@ -107,9 +107,9 @@ export default function NavBar() {
           <Link href="/login" className="items-center px-4 py-2" style={{ width: '134px', height: '47px', borderRadius: '6px', border: '2px solid #724FFF', opacity: '0px', textAlign: 'center', }}>
             <span className='w-96 h-21 font-sans text-base font-medium leading-6 text-center' style={{color: '#724FFF'}}>Log in</span>
           </Link>
-          <button className="text-white font-bold py-2 px-4 rounded" style={{ width: '134px', height: '47px', borderRadius: '6px', background: '#724FFF' }}>
-            <span className='w-96 h-21 font-sans text-base font-medium leading-6 text-center'>Create Event</span>
-          </button>
+          <Link href='/register' className="items-center text-white py-2 px-4" style={{ width: '134px', height: '47px', borderRadius: '6px', border: '2px solid #724FFF',background: '#724FFF' , textAlign: 'center'}}>
+            <span className='w-96 h-21 font-sans text-base font-medium leading-6 text-center'>Register</span>
+          </Link>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">

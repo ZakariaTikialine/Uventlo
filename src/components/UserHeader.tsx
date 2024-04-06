@@ -135,12 +135,12 @@ useEffect(() => {
                                         <AlertDialogDescription>
                                             <Select>
                                                 <SelectTrigger className="">
-                                                    <SelectValue placeholder="Theme" />
+                                                    <SelectValue placeholder="Event-name" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     <SelectItem value="Event-name">Event-name</SelectItem>
-                                                    <SelectItem value="Event-name">Event-name</SelectItem>
-                                                    <SelectItem value="Event-name">Event-name</SelectItem>
+                                                    <SelectItem value="Event-name2">Event-name</SelectItem>
+                                                    <SelectItem value="Event-name3">Event-name</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </AlertDialogDescription>
